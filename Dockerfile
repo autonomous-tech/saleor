@@ -68,4 +68,4 @@ LABEL org.opencontainers.image.title="mirumee/saleor"                           
   org.opencontainers.image.licenses="BSD 3"
 RUN chmod +x docker-entrypoint.sh
 ENTRYPOINT [ "./docker-entrypoint.sh" ]
-CMD ["gunicorn", "--bind", ":8000", "--workers", "4", "--worker-class", "saleor.asgi.gunicorn_worker.UvicornWorker", "--log-level", "DEBUG", "--access-logfile", "-", "--error-logfile", "-" "saleor.asgi:application"]
+CMD ["gunicorn", "--bind", ":8000", "--workers", "4", "--worker-class", "saleor.asgi.gunicorn_worker.UvicornWorker", "saleor.asgi:application"]
